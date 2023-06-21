@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://fe.it-academy.by/TestForm.php" method="get">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <label for="Salutation">Salutation</label>
+            <select name="Salutation" id="Salutation">
+                <option value="0"></option>
+                <option value="1">Mr.</option>
+                <option value="2">Miss</option>
+                <option value="3">Mrs</option>
+                <option value="4">Ms</option>
+            </select><br>
+
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname"><br>
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname"><br>
+            <label for="gender">Gender</label><br>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male" value="1">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female" value="2"><br>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email"><br>
+            <label for="DOB">Date of Birth</label>
+            <input type="date" name="DOB" id="DOB"><br>
+            <label for="address">Address</label><br>
+            <textarea name="address" id="address" cols="30" rows="5"></textarea>
+
+            <input type="submit">
+        </fieldset>
+    </form>
+</body>
+
+</html>
