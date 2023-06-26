@@ -37,7 +37,8 @@
                 <form action="http://fe.it-academy.by/TestForm.php" method="get">
                     <fieldset>
                         <legend>Строка поиска</legend>
-                        <input type="text" name="simple_search_req" id="simple_search_req" required>
+                        <input type="text" name="simple_search_req" id="simple_search_req" required autofocus>
+                        <label for="simple_search_req">*</label>
                         <input type="submit" value="Искать"><br>
                         <label><input type="radio" name="simple_search_req_scope" id="on_site" value="1">на
                             сайте</label>
@@ -50,16 +51,17 @@
         </tr>
         <tr>
             <td valign="top">
-                <!--решить вопрос с индикацией обязательного поля-->
-                <!--добавить автофокус-->
+                <!--мой браузер Chromium не делает обязательные поля как-то визуально отличными 
+                от необязательных, поэтому индикатор "обязательности" поля * я просто добавила к labels 
+                cooтветствующих полей. Или это неверно?-->
                 <h3>Простая форма авторизации</h3>
                 <form action="http://fe.it-academy.by/TestForm.php" method="get">
                     <fieldset>
                         <legend>Авторизируйтесь</legend>
                         <input type="text" name="login" id="login" required>
-                        <label for="login">Логин</label><br>
+                        <label for="login">* Логин</label><br>
                         <input type="text" name="password" id="password" required>
-                        <label for="login">Пароль</label><br>
+                        <label for="login">* Пароль</label><br>
                         <input type="checkbox" name="remember" id="remember">
                         <label for="remember">Оставаться в системе</label><br>
                         <input type="submit" value="Войти"><br>
@@ -68,7 +70,7 @@
                 </form>
             </td>
             <td valign="top">
-                <!--cделать скрытое поле-->
+
                 <h3>Опрос(голосование):</h3>
                 <form action="http://fe.it-academy.by/TestForm.php" method="get">
                     <fieldset>
@@ -77,25 +79,29 @@
                         <label><input type="radio" name="feedback" id="not_bad" value="2">неплохо</label><br>
                         <label><input type="radio" name="feedback" id="good" value="3">хорошо</label><br>
                         <label><input type="radio" name="feedback" id="super" value="4">супер</label><br>
+                        <input type="date" name="date_voite" id="date_voite" value="2013.12.31" hidden>
                         <input type="submit" value="Отправить"><br>
                         <p><em>Есть скрытое поле<br>
                                 name=date_voite, value="2013.12.31"</em></p>
+                        <!--полагаю, что значение скрытого поля не передается скрипту, потому что 
+                            неверный формат даты, д.быть 2013-12-31-->
                     </fieldset>
                 </form>
             </td>
         </tr>
         <tr>
             <td valign="top">
-                <!--добить валидацию эл.почты-->
                 <h3>Отзыв:</h3>
                 <form action="http://fe.it-academy.by/TestForm.php" method="post">
                     <fieldset>
                         <legend>Оставьте Ваш отзыв</legend>
                         <input type="text" name="user_name" id="user_name" required>
-                        <label for="user_name">Имя</label><br>
+                        <label for="user_name">* Имя</label><br>
                         <input type="email" name="user_email" id="user_email" required
-                            pattern='^[a-zA-Z0-9+_.-]+@+[a-zA-Z0-9.-]+$'>
-                        <label for="user_email">e-mail</label><br>
+                        pattern='^[a-zA-Z0-9+_.-]+@+[a-zA-Z0-9.-]+\.+[a-zA-Z0-9.-]$'>
+                            <!--эта регулярка весьма несовершенна, но хотя бы проверяет наличие @
+                                 и чего-то после @, хотя не требует наличия точки в доменном имени-->
+                        <label for="user_email">* e-mail</label><br>
                         <textarea name="send_form" id="send_form" cols="30" rows="3">Форма отправки</textarea>
                         <input type="submit" value="Отправить"><br>
                         <p><em>* - обязательное поле<br>
@@ -105,7 +111,6 @@
                 </form>
             </td>
             <td valign="top">
-                <!--попробовать выровнять окна выбора по нижнему краю-->
                 <h3>Выпадающий и мульти списки:</h3>
                 <form action="http://fe.it-academy.by/TestForm.php" method="get">
                     <fieldset style="height: 200px;">
@@ -134,7 +139,7 @@
         </tr>
         <tr>
             <td valign="top">
-                <!---->
+                <!--но файл не отправляется. что я делаю не так?-->
                 <h3>Загрузка файла на сервер:</h3>
                 <form action="http://fe.it-academy.by/TestForm.php" method="post" enctype="multipart/form-data">
                     <fieldset>
@@ -152,15 +157,20 @@
             </td>
             <td valign="top">
                 <h3>Валидация данных HTML5:</h3>
-                <!--тип валидация-->
+                <!--есть отдельный тип кнопки "проверить" или я не поняла смысл задания? 
+                    можно ли здесь использовать submit?-->
                 <form action="http://fe.it-academy.by/TestForm.php" method="get">
                     <fieldset>
                         <legend>Строка поиска</legend>
-                        <input type="text" name="only_russian" id="only_russian" placeholder="Только русские буквы"><br>
+                        <input type="text" name="only_russian" id="only_russian" 
+                        pattern='[А-яа-я]+'
+                        placeholder="Только русские буквы"><br>
                         <label for="cell_phone"><em>Телефонный номер в формате<br>
-                                +ХХХ-ХХ-ХХХХХХХ, где Х - любое числоы
+                                +ХХХ-ХХ-ХХХХХХХ, где Х - любое число
                             </em></label>
-                        <input type="text" name="cell_phone" id="cell_phone" placeholder="+375-29-1234567"><br>
+                        <input type="text" name="cell_phone" id="cell_phone" 
+                        pattern='^(\+375|80)(-)(29|25|44|33)(-)(\d{3})(\d{2})(\d{2})$'
+                        placeholder="+375-29-1234567"><br>                        
                         <input type="submit" value="Проверить"><br>
                     </fieldset>
                 </form>
