@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocks</title>
+    <style>
+        .wrap {
+            background-color: rgb(202, 192, 211);
+        }
+
+        .navigation_block {
+            width: 15em;
+            background-color: rgb(163, 134, 134);
+            float: left;
+        }
+
+        .content_1 {
+            background-color: rgb(94, 87, 134);
+            margin-bottom: 0.2em;
+            margin-left: 15em;
+        }
+
+        .content_2 {
+            background-color: rgb(87, 134, 87);
+            margin-bottom: 0.2em;
+            margin-top: 0.2em;
+            margin-left: 15em;
+        }
+
+        .support {
+            height: 0.1px;
+            clear: both;
+        }
+
+        .footer {
+            background-color: grey;
+        }
+
+        .inner_text {
+            white-space: pre-line;
+            margin: 0;
+        }
+
+        .for_image {
+            float: right;
+            position: relative;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="navigation_block">
+            <h4>Блок навигации</h4>
+            <ul>
+                <li>Ширина 15em</li>
+                <li>Должен присутствовать цвет фона</li>
+                <li>Располагается слева</li>
+                <li>Блок навигации наполните контентом достаточным, чтобы по высоте он начинал захватывать вторую
+                    статью, как показано в данном примере</li>
+            </ul>
+        </div>
+        <div class="content_1">
+            <h4>Статья 1</h4>
+            <div class="inner_text">Размер блока:
+                Занимает всю доступную ширину
+                Должен присутствовать цвет фона
+                Во всех "статьях" сделайте отступ снизу равным .2em, при помощи свойства margin-bottom.
+            </div>
+        </div>
+        <div class="content_2">
+            <h4>Статья 2</h4>
+            <div class="inner_text">
+                Размер блока:
+                Занимает всю доступную ширину
+                Должен присутствовать цвет фона
+                Во всех "статьях" сделайте отступ снизу равным .2em, при помощи свойства margin-bottom. Картинка
+                вставлена при помощи тега, плавание организовано по правому краю внутри данной статьи для этой картинки.
+                <div class="for_image">
+                    <img src="images/icon_mail.png" alt="icon_mail">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="support"></div>
+    </div>
+    <div class="footer">Нижний блок, подвал. Занимает всю доступную ширину.Высота определяется помещенным внутрь
+        контентом</div>
+
+
+</body>
+
+</html>
