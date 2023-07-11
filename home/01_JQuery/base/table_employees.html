@@ -7,7 +7,7 @@
     <title>Table_employees</title>
 </head>
 
-<style>    
+<style>
     thead {
         background-color: grey;
         font-weight: bold;
@@ -32,7 +32,7 @@
         border-right: none;
     }
 
-    tfoot tr td{
+    tfoot tr td {
         text-align: center;
         font-weight: lighter;
     }
@@ -40,6 +40,11 @@
     tr:hover {
         background-color: aqua;
         font-weight: bolder;
+    }
+
+    #storage_hidden {
+        background-color: rgb(57, 57, 173);
+        color: white;
     }
 </style>
 
@@ -96,11 +101,35 @@
             </tr>
         </tbody>
         <tfoot>
-            <tr>                
-                <td colspan="6">ДАННЫЕ О СОТРУДНИКАХ</td></tr></tfoot>
+            <tr>
+                <td colspan="6">ДАННЫЕ О СОТРУДНИКАХ</td>
+            </tr>
+        </tfoot>
+
     </table>
 
+    <button id="storage_hidden">Нет скрытых строк</button>
+    
 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        
+        $(document).ready(function ($) {
+            $('tr').click(function () {
+                $(this).hide()
+                $('#storage_hidden').text("Показать все строки")
+
+            })
+
+            $('#storage_hidden').click(function () {
+                $('tr').show()
+                $('#storage_hidden').text("Нет скрытых строк")
+            })
+        });
+
+
+    </script>
 </body>
 
 </html>
