@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 10px;
+            border: solid 1px black;
+            border-spacing: 0;
+            border-radius: 0 1em/1em;
+        }
+        
+        
+        a[href^="#"]:before {
+            content: url(../base_1/images/extref.png);
+        }
+
+        a[href$=".doc"]::after {
+            content: url(../base_1/images/logo-doc.jpg)
+        }
+
+        a[href$=".pdf"]::after {
+            content: url(../base_1/images/logo-pdf.png)
+        }
+
+        a[href$=".zip"]::after {
+            content:  url(../base_1/images/logo-zip.gif)
+        }
+              
+        .formats_list {
+            list-style: none;
+            padding: 0%;
+        }
+
+        .formats_list li::before {
+            content: url(../base_1/images/logo-list.jpg);
+        }   
+        
+        li>a::after{
+            content: none;
+        }
+        
+        li>a:hover::after{
+            content: initial;
+        }
+        
+        
+        /*не получилось найти общее решение для рисунков, чтобы они постоянно отображались в тексте
+        div, при этом не отображались в списке файлов, но появлялись при наведении мыши на список файлов
+        получилось только наоборот*/
+
+    </style>
+</head>
+
+<body>
+    <h1>Форматы файлов.</h1>
+
+    <div>DOC или .doc &#40;от англ.
+        <a href="#ms_word"> document</a> &#41; –
+        расширение имени файла, используемое для файлов, представляющих текст, с
+        разметкой или без. Расширение .DOC часто использовалось для обозначения простых текстовых файлов без
+        формирования. Однако позже стало использоваться для двоичных форматов с разметкой. <br>
+        <a href="../base_1/examples/doc.doc">Документ MS Word</a>
+    </div>
+    <div>Portable Document Format &#40;<a href="#pdf">PDF</a>&#41; –
+        межплатформенный формат электронных документов, разработанный фирмой Adobe
+        Systems с использованием ряда возможностей языка Postscript. <br>
+        <a href="../base_1/examples/pdf.pdf">Документ PDF</a>
+    </div>
+    <div>ZIP – популярный формат сжатия данных и архивации файлов. Файл в этом формате обычно имеет расширение
+        <a href="#archive">.zip</a> и
+        хранит в сжатом или несжатом виде один или несколько файлов, которое можно из него извлечь путем распаковки с
+        помощью специальной программы. <br>
+        <a href="../base_1/examples/zip.zip">Архив</a>
+    </div>
+
+    <h2>Это список файлов.</h2>
+    <ul class="formats_list">
+        <li id="ms_word"><a href="../base_1/examples/doc.doc" target="_blank">
+                Документ MS Word
+            </a></li>
+        <li id="pdf"><a href="../base_1/examples/pdf.pdf" target="_blank">
+                Документ PDF
+            </a></li>
+        <li id="archive"><a href="../base_1/examples/zip.zip" target="_blank">
+                Архив
+            </a></li>
+    </ul>
+
+
+</body>
+
+</html>
