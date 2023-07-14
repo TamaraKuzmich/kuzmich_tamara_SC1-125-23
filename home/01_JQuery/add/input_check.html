@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input_check</title>
+    <style>
+        fieldset {
+            width: fit-content;
+        }
+
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Проверка пароля</h1>
+    <form action="http://fe.it-academy.by/TestForm.php" method="post">
+        <fieldset>
+            <input type="password" id="user_password" name="user_password" required>
+            <label for="user_password">* Пароль</label><br>
+            <input type="password" id="user_rpt_password" name="user_rpt_password" required>
+            <label for="user_rpt_password">* Повторите пароль</label><br>
+            <input type="submit" value="Отправить">
+        </fieldset>
+    </form>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script>
+        //не работает! что нужно? ajax? обработчик событий?
+        $(document).ready(function ($) {
+            var value_1 = $("#user_password").val();
+            var value_2 = $("#user_rpt_password").val();
+
+            if (value_1 == "" && value_2 == "") {
+                $('#user_password, #user_rpt_password').css("background-color", "#ffffff")
+            }
+            else {
+                if (value_1 != "" && value_1 == value_2) {
+                    $('#user_password, #user_rpt_password').css("background-color", "#008000")
+                }
+                else {
+                    $('#user_password, #user_rpt_password').css("background-color", "#ff0000")
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
